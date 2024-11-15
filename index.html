@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="tr"> <!-- HTML dilini Türkçe olarak belirledim -->
+  <head>
+    <meta charset="UTF-8" /> <!-- Karakter setini UTF-8 olarak belirledim -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Cihaz uyumlu bir sayfa yapısı için viewport ayarını yaptım -->
+    <title>Benim Portföyüm</title> <!-- Sayfa başlığını ekledim -->
+    <link rel="stylesheet" href="styles/style.css" /> <!-- CSS dosyasını bağlayarak stil tanımlarını uyguluyorum -->
+  </head>
+  <body>
+
+    <header>
+      <div class="header-content">
+        <h2>Portföy Sayfama Hoşgeldiniz</h2> <!-- Hoşgeldiniz mesajı -->
+        <br>
+        <div id="currentDate"></div> <!-- Dinamik tarih/saat göstergesi -->
+      <nav>
+        <ul>
+          <li><a href="#" onclick="navigateTo('home')">Anasayfa</a></li> <!-- Anasayfa bağlantısı -->
+          <li><a href="#" onclick="navigateTo('about')">Hakkımda</a></li> <!-- Hakkımda bağlantısı -->
+          <li><a href="#" onclick="navigateTo('projects')">Projelerim</a></li> <!-- Projelerim bağlantısı -->
+        </ul>
+      </nav>
+    </header>
+
+    <!-- İçerik Bölümleri -->
+    <main>
+      <section id="home" class="content-section active">
+        <h2>Anasayfa</h2>
+        <div class="card">
+          <p class="intro-text">
+            Merhaba, ben Samet Kaya. Benim hakkımda bilgi almak için Hakkımda kısmına gidebilir, projelerimi görmek için Projelerim kısmına göz atabilirsin. Sitemi ziyaret ettiğin için teşekkür ederim.
+          </p>
+        </div>
+        <div class="contact-info">
+          <h3>İletişim Bilgileri</h3>
+          <p>Email: <a href="mailto:samet_kaya20@erdogan.edu.tr">samet_kaya20@erdogan.edu.tr</a></p>
+          <p>Instagram: <a href="https://www.instagram.com/sam3t.k4ya/" target="_blank">@Sam3t.k4ya</a></p>
+      
+          <div class="social-icons">
+            <a href="mailto:samet_kaya20@erdogan.edu.tr" target="_blank">
+              <img src="assets/icons/mail.png" alt="Mail" class="icon">
+            </a>
+            <a href="https://www.instagram.com/sam3t.k4ya/" target="_blank">
+              <img src="assets/icons/Instagram.png" alt="Instagram" class="icon">
+            </a>
+          </div>
+        </div>
+      
+        <div class="contact-form">
+          <h3>İletişim Formu</h3>
+          <form id="contactForm" onsubmit="return validateForm();" novalidate>
+            <label for="name">Adınız</label>
+            <input type="text" id="name" name="name" placeholder="Adınız">
+            <div class="error-message" id="nameError"></div>
+        
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Email adresiniz">
+            <div class="error-message" id="emailError"></div>
+        
+            <label for="message">Mesajınız</label>
+            <textarea id="message" name="message" placeholder="Mesajınızı buraya yazın..."></textarea>
+            <div class="error-message" id="messageError"></div>
+        
+            <button type="submit">Gönder</button>
+          </form>
+          <div id="successMessage" class="success-message" style="display: none;">
+            Mesajınız sorunsuz bir şekilde bana ulaştı. Yakın zamanda sizinle iletişime geçeceğim.
+          </div>
+        </div>
+      </section>
+      
+      
+
+      <section id="about" class="content-section">
+        <div class="about-container">
+            <div class="profile-picture">
+                <img src="assets/img/profil.jpg" alt="Samet Kaya'nın Fotoğrafı" />
+            </div>
+            <div class="about-text">
+                <h2>Hakkımda</h2>
+                <p id="shortBio">
+                    Merhaba, ben Samet Kaya bu sayfada sizlere kendimi tanıtacağım ve
+                    kendimle ilgili bilgiler vereceğim.
+                </p>
+                <div id="fullBio" style="display: none;">
+                    <p>
+                        Ben Karabük'de yaşıyorum. 2001 doğumluyum. İlkokul ve ortaokulu
+                        Kartaltepe İlkokulu ve Ortaokulunda okudum. Liseyi ise Fevzi
+                        Çakmak Anadolu Lisesinde okudum. Şu anda ise Rize'de Recep Tayyip
+                        Erdoğan Üniversitesi Bilgisayar Mühendisliği bölümü son sınıf
+                        öğrencisiyim. Oyun alanına ilgi duyuyorum ve film dizi izlemeyi seviyorum.
+                        En sevdiğim oyun türü hayatta kalma oyunlarıdır. En sevdiğim film türü
+                        ise bilim kurgu filmleridir.
+                    </p>
+                    <p>
+                        Şu anda oyun geliştirme üzerine yoğunlaşıyorum. Web geliştirme
+                        alanında da çalışmalarım var, ancak bu yıl oyun geliştirmeye daha
+                        fazla odaklanmayı planlıyorum. Bu doğrultuda, bitirme projem için
+                        bir arkadaşım ile birlikte bir oyun geliştirme projesi yapıyoruz.
+                    </p>
+                    <p>
+                        Bu projede Unity oyun motorunu kullanarak bir 3D multiplayer oyun
+                        geliştiriyoruz. Oyunun konusundan şuan için bahsetmek istemiyorum,
+                        ancak oyunun gelişim süreci ve ilerleyişi hakkında sizleri
+                        bilgilendireceğim. Ayrıca bu projenin gelişim sürecini ve
+                        aşamalarını bu sayfada sizlerle paylaşacağım.
+                    </p>
+                </div>
+                <button onclick="toggleBio()" id="bioButton">Daha Fazla Göster</button>
+            </div>
+        </div>
+    </section>
+
+      <section id="projects" class="content-section"> <!-- Projelerim bölümünü oluşturdum -->
+        <h2 style="margin-bottom: 24px">Projelerim</h2>
+
+        <!-- Sekme Başlıkları -->
+        <div class="tab-buttons"> <!-- Projeler için sekme başlıkları -->
+          <button class="tab-button" onclick="openProject('project1')">
+            En Beğenilen Projeler
+          </button>
+          <button class="tab-button" onclick="openProject('project2')">
+            Eklenen Son Projeler
+          </button>
+        </button>
+        <button class="tab-button" onclick="openProject('allProjects')">
+          Tüm Projeler
+        </button>
+          <!-- İstediğim kadar proje sekmesi ekleyebilirim -->
+        </div>
+
+
+        <!-- Proje İçerikleri -->
+        <div class="tab-content" id="project1">
+          <div class="project-image">
+          <div class="project-item" data-id="BoomBook" onclick="openModal('BoomBook Web Projesi', 'assets/img/Anasayfa.png', 'Bu projede BoomBook adlı bir web sitesi geliştirdik. Bu projeyi 2 arkadaşımla birlikte Proje Yönetimi dersi için final ödevi olarak yaptık. Projemiz, ders dökümanlarını paylaşmak ve kitap satışı sağlamak amacıyla oluşturulmuştur. amacıyla oluşturulmuştur. Veri tabanı olarak phpMyAdmin kullandık. Projemizi XAMPP üzerinden localhost ile çalıştırdık.')">
+            <img src="assets/img/Anasayfa.png" alt="BoomBook Web Projesi">
+            <div class="project-description">
+              <h3>BoomBook Web Projesi</h3>
+              <p>
+                Bu projede BoomBook adlı bir web sitesi geliştirdik. Bu projeyi 
+                2 arkadaşımla birlikte Proje Yönetimi dersi için final ödevi olarak 
+                yaptık. Projemiz, ders dökümanlarını paylaşmak ve kitap satışı sağlamak 
+                amacıyla oluşturulmuştur. Veri tabanı olarak phpMyAdmin kullandık.
+                Projemizi XAMPP üzerinden localhost ile çalıştırdık.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+
+         <!-- Unity 3D Survival Game Projesi -->
+         <div class="project-image">
+          <div class="project-item" data-id="3D Survival" onclick="openModal('Unity 3D Survival Game Projesi', 'assets/img/Survival.png', 'Bu projemde unity ile 3D bir hayatta kalma oyunu geliştirdim. Oyunumda, oyuncular kaynakları toplayarak ve düşmanlardan kaçarak hayatta kalmaya çalışıyor.')">
+            <img src="assets/img/Survival.png" alt="Unity 3D Survival Game Projesi" />
+            <div class="project-description">
+              <h3>Unity 3D Survival Game Projesi</h3>
+              <p>
+                Bu projemde unity ile 3D bir hayatta kalma oyunu geliştirdim. Oyunumda, oyuncular kaynakları toplayarak ve düşmanlardan kaçarak hayatta kalmaya çalışıyor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="project2"><br><br> <!-- İkinci projenin içeriği -->
+
+        <!-- Unity 2D Mario Game Projesi -->
+         <div class="project-image">
+        <div class="project-item" data-id="2D Mario" onclick="openModal('Unity 2D Mario Game Projesi', 'assets/img/Unity_player.png', 'Bu projemde unity ile 2D bir oyun geliştirdim. Oyunum şuanlık 2 seviyeden oluşmaktadır ilerleyen zamanlarda daha fazla sahne (yani seviye) ekleyeceğim. Eğer bir sahnedeki tüm gemleri toplamazsanız sonraki seviyeye geçemezsiniz. Tüm gemler toplandıktan sonra bölüm sonunda bulunan eve gelirseniz sonraki seviyeye geçebilirsiniz.')">
+          <img src="assets/img/Unity_player.png" alt="Unity 2D Mario Game Projesi" />
+          <div class="project-description">
+            <h3>Unity 2D Mario Game Projesi</h3>
+            <p>
+              Bu projemde unity ile 2D bir oyun geliştirdim. Oyunum şuanlık 2 seviyeden oluşmaktadır 
+              ilerleyen zamanlarda daha fazla sahne (yani seviye) ekleyeceğim. Eğer bir sahnedeki tüm 
+              gemleri toplamazsanız sonraki seviyeye geçemezsiniz. Tüm gemler toplandıktan sonra bölüm 
+              sonunda bulunan eve gelirseniz sonraki seviyeye geçebilirsiniz.
+            </p>
+          </div>
+        </div>
+      </div>
+        <br><br>
+      
+        <!-- Unity 3D Survival Game Projesi -->
+         <div class="project-image">
+        <div class="project-item" data-id="3D Survival" onclick="openModal('Unity 3D Survival Game Projesi', 'assets/img/Survival.png', 'Bu projemde unity ile 3D bir hayatta kalma oyunu geliştirdim. Oyunumda, oyuncular kaynakları toplayarak ve düşmanlardan kaçarak hayatta kalmaya çalışıyor.')">
+          <img src="assets/img/Survival.png" alt="Unity 3D Survival Game Projesi" />
+          <div class="project-description">
+            <h3>Unity 3D Survival Game Projesi</h3>
+            <p>
+              Bu projemde unity ile 3D bir hayatta kalma oyunu geliştirdim. Oyunumda, oyuncular kaynakları toplayarak ve düşmanlardan kaçarak hayatta kalmaya çalışıyor.
+            </p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+        <div class="tab-content" id="allProjects"> <br><br>
+
+          <div class="project-image">
+            <div class="project-item" data-id="Sudoku" onclick="openModal('C++ Sudoku Çözme Projesi', 'assets/img/Sudoku_solve.png', 'Bu proje C++ da yazdığım ve 9x9 luk bir sudokuyu çözmek için tasarladığım bir projedir. Projede, kullanıcıdan 9x9 luk bir sudoku matrisi alınır ve bu matrisi çözmek için bir algoritma kullanılır. Algoritma, sudoku kurallarına uygun bir şekilde matrisi çözer ve çözümü ekrana yazdırır.')">
+              <img src="assets/img/Sudoku_solve.png" alt="C++ Sudoku Çözme Projesi">
+              <div class="project-description">
+                <h3>C++ Sudoku Çözme Projesi</h3>
+                <p>
+                  Bu proje C++ da yazdığım ve 9x9 luk bir sudokuyu çözmek için tasarladığım bir projedir. 
+                  Projede, kullanıcıdan 9x9 luk bir sudoku matrisi alınır ve bu matrisi çözmek için bir algoritma
+                  kullanılır. Algoritma, sudoku kurallarına uygun bir şekilde matrisi çözer ve çözümü ekrana yazdırır.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <img id="modalImage" src="" alt="Proje Görseli">
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script> <!-- Sayfa işlevleri için JavaScript dosyasını ekledim -->
+  </body>
+</html>
