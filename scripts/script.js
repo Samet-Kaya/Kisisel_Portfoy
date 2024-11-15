@@ -151,6 +151,3 @@ window.onclick = function(event) {
         closeModal();
     }
 };
-
-
-z
